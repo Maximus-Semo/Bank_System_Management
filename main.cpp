@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include "Client.hpp"
-
+#include "Employee.hpp"
+#include "Admin.hpp"
 using namespace std;
 int main(){
-	Client a("name",1,"1234",2002);
+	Client a("maximus",1,"111111234",100);
 	a.Display();
 }

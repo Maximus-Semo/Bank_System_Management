@@ -1,10 +1,7 @@
-#ifndef PERSON
-#define PERSON
-
 #pragma once
+#include "Validation.hpp"
 #include <iostream>
 #include <string>
-#include "Validation.hpp"
 using namespace std;
 class Person
 { 
@@ -83,4 +80,3 @@ Person (string name,int id, string password)
 		cout << "Done"<<endl;
 	}
 };
-#endif // PERSON

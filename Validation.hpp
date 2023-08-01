@@ -1,5 +1,3 @@
-#ifndef VALIDATION
-#define VALIDATION
 
 #pragma once
 #include <iostream>
@@ -47,4 +45,3 @@ public:
 		return true;
 	}
 };
-#endif // VALIDATION

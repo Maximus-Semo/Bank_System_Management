@@ -1,6 +1,3 @@
-#ifndef CLIENT
-#define CLIENT
-
 #pragma once
 #include <iostream>
 #include "Person.hpp"
@@ -19,17 +16,34 @@ public:
 	};
 	Client(string name, int id, string password, double balance):Person(name,id,password)
 	{
-		if(Validation::minBalance(balance)){
-			this->balance = balance;
+		while(true){
+		  if(Validation::minBalance(balance))
+		  {
+				this->balance = balance;
+				break;
+		  }
+		  else{
+		  	cout<< "the balance is min 1500"<<endl;
+		  	cin>>balance;
+		  } 
+
 		}
 	};
 	//Setter
 	void setBalance(double balance)
 	{
-		if (Validation::minBalance(balance))
-		{
-			this->balance = balance;
-		}	
+		while(true){
+		  if(Validation::minBalance(balance))
+		  {
+				this->balance = balance;
+				break;
+		  }
+		  else{
+		  	cout<< "the balance is min 1500"<<endl;
+		  	cin>>balance;
+		  } 
+
+		}
 	}
 	//Getter
 	double getBalance()
@@ -72,4 +86,3 @@ public:
 	~Client(){};
 	
 };
-#endif // CLIENT

@@ -3,7 +3,7 @@
 #include "Person.hpp"
 #include "Validation.hpp"
 using namespace std;
-class Employee : public Perosn
+class Employee : public Person
 {
 protected:
 	//data members
@@ -14,11 +14,18 @@ public:
 	{
 		this->salary = 0;
 	}
-	Employee(string name, int id, string password, double salary):Perosn(name,id,password)
+	Employee(string name, int id, string password, double salary):Person(name,id,password)
 	{
-		if (Validation::minSalary(salary))
+		while(true)
 		{
+			if (Validation::minSalary(salary))
+			{
 			this->salary = salary;
+			break;
+			} else {
+			cout << "the salary is min 5000, pelase enter above 5000"<<endl;
+			cin>>salary;
+			}
 		}
 	}
 	//Setter
