@@ -14,7 +14,7 @@ private:
 		stringstream stream(line);
 		string part;
 		vector<string> info;
-		while(getline(stream,part,'&'))
+		while(getline(stream, part ,'&'))
 		{
 			info.push_back(part);	
 		}
@@ -28,7 +28,7 @@ public:
 		client.setId(info[1]);
 		client.setId(info[2]);
 		client.setId(stod(info[3]));
-
+		return client;
 	}
 	static Employee parseToEmployee(string line){
 		vector<string> info = splite(line);
@@ -37,7 +37,7 @@ public:
 		employee.setId(info[1]);
 		employee.setId(info[2]);
 		employee.setId(stod(info[3]));
-
+		return employee;
 	}
 	static Admin parseToAdmin(string line){
 		vector<string> info = splite(line);
@@ -46,7 +46,7 @@ public:
 		admin.setId(info[1]);
 		admin.setId(info[2]);
 		admin.setId(stod(info[3]));
-
+		return admin;
 	}
  
 };

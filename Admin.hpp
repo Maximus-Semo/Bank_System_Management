@@ -20,3 +20,5 @@ class Admin: public Employee
 		}
 		~Admin(){}
 };
+static vector<Admin> allAdmin;
+static vector<Admin>::iterator alt;

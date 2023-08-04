@@ -5,13 +5,13 @@ using namespace std;
 class DataSourceInterface
 {
 protected:
-	 void addClient(Client) = 0; 
-	 void addEmployee(Employee) = 0;
-	 void addAdmin(Admin) = 0;
+	 void addClient(Client c) = 0; 
+	 void addEmployee(Employee e) = 0;
+	 void addAdmin(Admin a) = 0;
 
-	 vector<Client> getAllClients() = 0;
-	 vector<Employee> getAllEmployees() = 0;
-	 vector<Employee> getAllAdmins() = 0;
+	 void getAllClients() = 0;
+	 void getAllEmployees() = 0;
+	 void getAllAdmins() = 0;
 
 	 void removeAllClients() = 0;
 	 void removeAllEmployees() = 0;

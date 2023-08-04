@@ -86,3 +86,5 @@ public:
 	~Client(){};
 	
 };
+static vector<Client> allClient;
+static vector<Client>::iterator clIt;
