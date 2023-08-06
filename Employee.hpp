@@ -42,9 +42,32 @@ public:
 		return this->salary;
 	} 
 	//Methods
+
+	void addClient(Client& client){
+		allClient.push_back(client);
+	}
+	Client* searchClient(int id){
+		for (clIt = allClient.begin(); clIt != allClient.end(); clIt++)
+		{
+			if (clIt->getId() == id)return &(*clIt);
+		}
+		return NULL;
+	}
+	void listClient(){
+		for (clIt = allClient.begin(); clIt != allClient.end(); clIt++)
+		{
+			clIt->Display();
+			cout << "----------------------------->"<<endl;
+		}
+	}
+	void editClient(int id, string name,string password,double balance){
+		searchClient(id)->setName(name);		
+		searchClient(id)->setPassword(password);
+		searchClient(id)->balance(balance);
+	}
 	void Display()
 	{
-		cout<<"-------------------------------------------"<<endl;
+		cout<<"------------------------------------------->"<<endl;
 		cout << "Employee" <<endl;
 		cout << "ID "<<this->id<<endl;
 		cout <<"Name "<<this->name<<endl;

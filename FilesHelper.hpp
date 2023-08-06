@@ -2,13 +2,14 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include <Client.hpp>
+#include <Admin.hpp>
+#include <Employee.hpp>
+#include <Parser.hpp>
 using namespace std;
 
 class FilesHelper {
-private:
 public:
-	FilesHelper();
 	static void saveLastId(string fileName, int id){
 			ofstream file;
 			file.open(fileName);
@@ -27,7 +28,7 @@ public:
 		int id = getLast("ClientLastId.txt");
 		ofstream file;
 		file.open("Client.txt");
-		file << id + 1 << "&" << c.getName() <<"&"<< c.getPassword() <<"&"<< c.getBalance() <<endl;
+		file << id + 1 << "&" << c.getName() <<"&"<< c.getPassword() <<"&"<< c.getBalance();
 		saveLastId("ClientLastId.txt",id+1);
 		file.close();
 	}
@@ -35,21 +36,46 @@ public:
 		int id = getLast(lastIdFile);
 		ofstream file;
 		file.open(fileName , ios::app);
-		file << id + 1 << "&" << e.getName() <<"&"<< e.getPassword() <<"&"<< e.getSalary() <<endl;
+		file << id + 1 << "&" << e.getName() <<"&"<< e.getPassword() <<"&"<< e.getSalary();
 		saveLastId(lastIdFile, id+1);
 		file.close();
 	}
 	static void getClients(){
 		string line;
 		ofstream file;
-
 		file.open("Client.txt");
-		while(getline,line){
-			Client c = 
+		while(getline , line){
+			Client c = Parser::parseToClient(line);
+			allClient.push_back(c);
 		}
+		file.close();
 	}
-	static void getEmployees(){}
-	static void getAdmins(){}
-	static void clearFile(string fileName, string lastIdFile){}
-	~FilesHelper();	
+	static void getEmployees(){
+		string line;
+		ofstream file;
+		file.open("Employee.txt");
+		while(getline , line){
+			Employee e = Parser::parseToClient(line);
+			allEmployees.push_back(e);
+		}
+		file.close();
+	}
+	static void getAdmins(){
+		string line;
+		ofstream file;
+		file.open("Admin.txt");
+		while(getline , line){
+			Admin a = Parser::parseToClient(line);
+			allAdmin.push_back(a);
+		}
+		file.close();
+	}
+	static void clearFile(string fileName, string lastIdFile){
+		fstream file1, file2;
+		file1.open(fileName,ios::out,ios::trunc);
+		file1.close();
+		file2.open(lastIdFile, ios::out);
+		file2 << 0;
+		file2.close();
+	}
 };
