@@ -60,10 +60,10 @@ public:
 			cout << "----------------------------->"<<endl;
 		}
 	}
-	void editClient(int id, string name,string password,double balance){
-		searchClient(id)->setName(name);		
+	void editClient(int id, string name, string password, double balance) {
+		searchClient(id)->setName(name);
 		searchClient(id)->setPassword(password);
-		searchClient(id)->balance(balance);
+		searchClient(id)->setBalance(balance);
 	}
 	void Display()
 	{

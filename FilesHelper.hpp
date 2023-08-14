@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <Client.hpp>
-#include <Admin.hpp>
-#include <Employee.hpp>
-#include <Parser.hpp>
+#include "Client.hpp"
+#include "Admin.hpp"
+#include "Employee.hpp"
+#include "Parser.hpp"
 using namespace std;
 
 class FilesHelper {
@@ -41,41 +41,46 @@ public:
 		file.close();
 	}
 	static void getClients(){
+		//cout <<"getClients"<<endl;
+        ifstream file("Client.txt");
 		string line;
-		ofstream file;
-		file.open("Client.txt");
-		while(getline , line){
+		
+		while(getline(file,line))
+		{
 			Client c = Parser::parseToClient(line);
 			allClient.push_back(c);
 		}
 		file.close();
 	}
 	static void getEmployees(){
+		ifstream file("Employee.txt");
 		string line;
-		ofstream file;
-		file.open("Employee.txt");
-		while(getline , line){
-			Employee e = Parser::parseToClient(line);
+		while(getline(file,line)){
+			Employee e = Parser::parseToEmployee(line);
 			allEmployees.push_back(e);
 		}
 		file.close();
 	}
 	static void getAdmins(){
 		string line;
-		ofstream file;
-		file.open("Admin.txt");
-		while(getline , line){
-			Admin a = Parser::parseToClient(line);
+		ifstream file("Admin.txt");
+		while(getline(file,line))
+		{
+			Admin a = Parser::parseToAdmin(line);
 			allAdmin.push_back(a);
 		}
 		file.close();
 	}
 	static void clearFile(string fileName, string lastIdFile){
-		fstream file1, file2;
-		file1.open(fileName,ios::out,ios::trunc);
-		file1.close();
-		file2.open(lastIdFile, ios::out);
-		file2 << 0;
-		file2.close();
-	}
+       ofstream file(fileName);
+       ofstream lastIdFileStream(lastIdFile);
+        if (!file.is_open() || !lastIdFileStream.is_open())
+        {
+            cerr << "Failed to open file or lastIdFile." << endl;
+            return;
+        }
+        file.close();
+        lastIdFileStream.close();
+        cout << "File cleared successfully." << endl;
+   }
 };

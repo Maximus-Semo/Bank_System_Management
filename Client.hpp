@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "Person.hpp"
 #include "Validation.hpp"
+
 using namespace std;
 class Client : public Person
 {

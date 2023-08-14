@@ -14,7 +14,7 @@ class Admin: public Employee
 			allEmployees.push_back(employee);
 		}
 		Employee* searchEmployee(int id){
-			for (eIt = allEmployees.begain(); eIt != allEmployees.end(); eIt++)
+			for (eIt = allEmployees.begin(); eIt != allEmployees.end(); eIt++)
 			{
 				if (eIt->getId() == id)return &(*eIt); 
 			}
@@ -26,7 +26,7 @@ class Admin: public Employee
 			searchEmployee(id)->setSalary(salary);
 		}
 		void listEmployee(){
-		for (eIt = allEmployees.begain(); eIt != allEmployees.end(); eIt++)
+		for (eIt = allEmployees.begin(); eIt != allEmployees.end(); eIt++)
 			{
 				eIt->Display();
 				cout<<"--------------------------------------->"<<endl; 
@@ -44,4 +44,4 @@ class Admin: public Employee
 		~Admin(){}
 };
 static vector<Admin> allAdmin;
-static vector<Admin>::iterator alt;
+static vector<Admin>::iterator aIt;
